@@ -1,0 +1,11 @@
+/*********The module for All Widgets***********/
+.headersRow{
+    background-color: rgb(47, 79, 79) !important;
+    color: rgb(255, 255, 255) !important;
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px;
+    cursor: default;
+    font-weight: bold;
+}

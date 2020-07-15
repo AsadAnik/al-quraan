@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import Search from '../widgets/Search';
 
 ///Header of this Quraan Application...
 const Header = () => {
+
     return (
         <div>
             <Container>
@@ -16,7 +16,6 @@ const Header = () => {
                     />
                     <h4>Read Holy Quraan</h4>
                 </div>
-                <Search />
             </Container>
         </div>
     )

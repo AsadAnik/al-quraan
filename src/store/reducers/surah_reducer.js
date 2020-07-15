@@ -4,6 +4,9 @@ export default function(state = null, action){
         case "ALL_SURAHS":
             return {...state, quraan_details: action.payload};
         
+        case "SEARCHED_SURAH":
+            return {...state, quraan_details: action.payload};
+        
         default:
             return state;
     }

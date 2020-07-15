@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form } from 'react-bootstrap';
 
-const Search = () => {
+const Search = (props) => {
    //The object to Styling..
     const style = {
         width: '400px',
@@ -12,7 +12,12 @@ const Search = () => {
     //Return Statement...
     return (
         <Form className={'m-4'}>
-            <Form.Control type="text" placeholder="Search" style={style} />
+            <Form.Control 
+                type="text" 
+                placeholder="Search" 
+                style={style} 
+                onChange={(event) => props.change(event)}
+            />
         </Form>
     )
 }

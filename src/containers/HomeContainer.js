@@ -1,75 +1,66 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
-import StylesModule from '../style_modules/Home.module.css';
-import RevelationIcon from '../components/widgets/RevelationIcon';
-import Loading from '../components/widgets/Loading';
-
+import SearchBar from '../components/widgets/Search';
+import HeaderBar from '../components/widgets/HeaderBar';
+import QuraanListView from '../components/home/QuraanList';
 ///React-Redux...
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { getAllSurahList } from '../store/actions';
+import { getAllSurahList, searchSpecificSurah } from '../store/actions';
 import { full_quraan } from '../Firebase';
 
 
 class Home_container extends React.Component {
     //The Lifecycle Method...
-    async componentDidMount() {
-        //Fetching data from firebase and send to Redux-Store..
-        await full_quraan.once('value').then(snapData => {
-            const usefullData = snapData.val();
-            this.props.getAllSurahList(usefullData);
+    componentDidMount() {
+        // Fetching data from firebase and send to Redux-Store..
+        full_quraan.once('value').then(snapShot => {
+            let putInto = [];
+
+            snapShot.forEach(element => {
+                putInto.push(element.val())
+            })
+
+            this.props.getAllSurahList(putInto)
         })
-        .catch(error => console.log('Catched Error When Targets for data from database : ', error))
     }
 
-    ///the Method is helping to get the data from redux store..  
-    getAllSurahs = (holyQuraan) => (
-        holyQuraan && holyQuraan.full_quraan.length > 0 ?
+    changeKeyWithSearch = (event) => {
+        const keys = event.target.value;
 
-            holyQuraan.full_quraan.map(item => (
-                <Row key={item.id} className={StylesModule.surahRaws}>
-                    <Col>
-                        <span className={StylesModule.makeCircle}>
-                            {item.id}
-                        </span>
-                    </Col>
+        if(keys.length >= 3){
+            console.log(keys.length);
+            full_quraan.orderByChild('nameSimple').equalTo(keys).once('value')
+            .then(snapShot => {
+                let putInto = [];
 
-                    <Col>
-                        <h5 className={'font-weight-bold'}>{item.nameComplex}</h5>
-                        <div>
-                            <h6>{item.nameArabic}</h6>
-                        </div>
-                    </Col>
+                snapShot.forEach(snap => {
+                    putInto.push(snap.val())
+                })
 
-                    <Col>
-                        <span className={StylesModule.makeCircle}>
-                                {item.versesCount}
-                        </span>
-                    </Col>
+                this.props.searchSpecificSurah(putInto);    
+            })
+            // this.props.searchSpecificSurah(keys);
+        }
+        
+        if(keys.length < 1 || keys.length === 0){
+            console.log('1')
+            full_quraan.once('value').then(snap => {
+                this.props.getAllSurahList(snap.val())
+            })
+        }
+    }
 
-                    <Col>
-                        <div className={'d-flex mt-1 ml-5'}>
-                            <RevelationIcon placeName={item.revelationPlace} iconSize={40} />
-                            <span className={StylesModule.revelationName}>
-                                {item.revelationPlace}
-                            </span>
-                        </div>
-                    </Col>
-                </Row>
-            ))
-            :
-            <div className={StylesModule.loading}>
-                <Loading type={'cylon'} color={'darkslategray'} />
-            </div>
-    )
 
     ///The Render Method...
     render() {
         ///testing data from redux...
-        // console.log(this.props.quraan_details)
+        console.log('Cehcking the data -->>', this.props)
+
         return (
             <div>
-                {this.getAllSurahs(this.props.quraan_details)}
+                <SearchBar change={this.changeKeyWithSearch} />
+                <HeaderBar />
+                <QuraanListView quraanList={this.props.quraan_details} />
             </div>
         )
     }
@@ -84,7 +75,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return bindActionCreators({
-        getAllSurahList
+        getAllSurahList,
+        searchSpecificSurah
     }, dispatch)
 }
 

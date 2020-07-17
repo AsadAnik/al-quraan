@@ -19,7 +19,5 @@ const firebaseDB = firebase.database();
 const full_quraan = firebaseDB.ref('quraan/0');
 
 export {
-    firebase,
-    firebaseDB,
     full_quraan,
 }

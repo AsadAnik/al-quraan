@@ -1,6 +1,6 @@
 import React from 'react';
 import {Row, Col} from 'react-bootstrap';
-import WidgetsModule from './Widgets.module.css';
+import WidgetsModule from '../../style_modules/Widgets.module.css';
 
 const HeaderBar = () => {
     return (

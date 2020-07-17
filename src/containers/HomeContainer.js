@@ -24,12 +24,27 @@ class Home_container extends React.Component {
         })
     }
 
+    ///Method for Capitalizing the value...
+    toCapitalize = (value) => {
+        return value.replace(/\w\S*/g, (txt) => (
+               txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+        ))
+    }
+
+    //The Change Key Method to Finding the value when the values take change..
     changeKeyWithSearch = (event) => {
         const keys = event.target.value;
 
-        if(keys.length >= 3){
-            console.log(keys.length);
-            full_quraan.orderByChild('nameSimple').equalTo(keys).once('value')
+        ///Doing some operation with keys...
+        const makeOperationSome = this.toCapitalize(keys);
+        const searchValue = makeOperationSome.split(" ").join("-");
+
+        //make some console view..
+        console.log(searchValue)
+        console.log(searchValue.length);
+
+        if(searchValue.length >= 3){    
+            full_quraan.orderByChild('nameSimple').equalTo(searchValue).once('value')
             .then(snapShot => {
                 let putInto = [];
 
@@ -39,10 +54,10 @@ class Home_container extends React.Component {
 
                 this.props.searchSpecificSurah(putInto);    
             })
-            // this.props.searchSpecificSurah(keys);
+            // this.props.searchSpecificSurah(searchValue);
         }
         
-        if(keys.length < 1 || keys.length === 0){
+        if(searchValue.length < 1 || searchValue.length === 0){
             console.log('1')
             full_quraan.once('value').then(snap => {
                 this.props.getAllSurahList(snap.val())
@@ -54,7 +69,7 @@ class Home_container extends React.Component {
     ///The Render Method...
     render() {
         ///testing data from redux...
-        console.log('Cehcking the data -->>', this.props)
+        // console.log('Cehcking the data -->>', this.props)
 
         return (
             <div>

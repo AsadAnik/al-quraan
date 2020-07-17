@@ -1,9 +1,11 @@
 import {createStore, combineReducers} from 'redux';
 import SurahReducer from './reducers/surah_reducer';
+import ChapterReducer from './reducers/chapter_reducer';
 
 ///Created the RootReducer...
 const rootReducer = combineReducers({
     surah_reducer: SurahReducer,
+    chapter_reducer: ChapterReducer
 })
 
 // ///Created with middleware...

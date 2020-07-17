@@ -1,16 +1,17 @@
 /************The Style Module for Sytling Applicaitons HOME**********/
 .surahRaws{
-    border: 1px solid lightgray;
+    border: 1px solid lightgray !important;
     text-align: center;
-    background-color: lightgray;
+    background-color: lightgray !important;
     margin-bottom: 5px;
     margin-top: 5px;
     border-radius: 10px;
     padding: 10px;
+    color: rgb(41, 70, 70) !important;
 }
 .makeCircle{
-    background-color: #fff;
-    color: rgb(47, 79, 79);
+    background-color: #fff !important;
+    color: rgb(47, 79, 79) !important;
     font-size: 20px;
     font-weight: bold;
     padding: 10px;

@@ -1,5 +1,7 @@
 /*****************THE CONTENTS MODULE***************/
 .contentSection{
+    /* background: url('/bg-images/01.jpg') no-repeat;
+    background-size: cover; */
     background: darkslategray;
     border-radius: 5px;
     padding: 1rem;
@@ -14,6 +16,13 @@
     background: #fff;
     width: 100%;
 }
+.loading{
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -60%);
+}
+
 .circle{
     background-color: #fff !important;
     color: rgb(47, 79, 79) !important;
@@ -66,4 +75,16 @@
     text-align: center;
     padding: 8px 8px;
     border-radius: 8px;
+}
+
+/*************************THE CONTENTS BODY*************************************/
+.contentsBody{
+    background: rgb(47, 79, 79);
+    border: 1px solid gray;
+    padding: 10px 5px 5px 5px;
+    border-radius: 5px;
+}
+.PN{
+    background: rgb(47, 79, 79);
+    width: 100%;
 }

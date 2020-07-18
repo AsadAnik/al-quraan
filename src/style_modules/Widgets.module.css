@@ -9,3 +9,49 @@
     cursor: default;
     font-weight: bold;
 }
+
+
+/****************TOGGGGGLLLLEEEEEE BUTTTTTTTTOOOONNNN******************/
+.display{
+    padding: 0 10px;
+    z-index: 1;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+}
+.toggle_input{
+    display: none;
+}	
+.toggle_input:checked + .toggle_control{
+    background-color: rgb(251, 239, 175);
+    border-color: rgb(251, 239, 175);
+}
+.toggle_input:checked + .toggle_control:after{
+    left: 20px;
+}
+
+.toggle_control{
+    transition: 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    width: 40px;
+    height: 20px;
+    display: block;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+.toggle_control:after{
+    transition: 0.3s cubic-bezier(0.95, 0.05, 0.795, 0.035);
+    content: "";
+    width: 20px;
+    height: 20px;
+    display: block;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2), 0 3px 3px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+
+}

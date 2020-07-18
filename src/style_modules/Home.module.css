@@ -2,13 +2,24 @@
 .surahRaws{
     border: 1px solid lightgray !important;
     text-align: center;
-    background-color: lightgray !important;
+    background: lightgray !important;
+    color: rgb(41, 70, 70) !important;
+    /* background: url('/bg-images/11.jpg') no-repeat center center fixed;
+    opacity: .8;
+    color: #fff !important; */
+    background-size: cover;
     margin-bottom: 5px;
     margin-top: 5px;
     border-radius: 10px;
     padding: 10px;
-    color: rgb(41, 70, 70) !important;
+    transition: 0.5s ease all;
 }
+.surahRaws:hover{
+    background: #fff !important;
+    color: black !important;
+    border: 0 !important;
+}
+
 .makeCircle{
     background-color: #fff !important;
     color: rgb(47, 79, 79) !important;

@@ -5,7 +5,7 @@ import ToggleButton from '../../widgets/ToggleButton';
 import StylesModule from '../../../style_modules/Contents.module.css';
 
 const Body = ({ pageStarts, pageEnds }) => {
-
+    //The Hooks for Setting the Mood of Reading page..
     const [mood, setMood] = useState(false);
 
     // console.log(pageStarts, pageEnds)

@@ -1,0 +1,18 @@
+/***********************THE MODULE FOR FOOTER************************/
+.Footer{
+    background: rgb(53, 80, 80) !important;
+    border-radius: 10px 10px 0 0 !important;
+    color: lightcyan;
+    font-size: 15px;
+    text-align: center;
+    display: grid;
+    justify-items: center;
+}
+.FooterDivOne{
+    border-radius: 100%;
+    padding: 1.3rem 1rem !important;
+}
+.FooterDivSecond{
+    border-radius: 5px;
+    width: 100%;
+}

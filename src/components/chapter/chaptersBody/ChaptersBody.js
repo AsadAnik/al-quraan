@@ -31,7 +31,7 @@ const Body = ({ pageStarts, pageEnds }) => {
                     <span className={StylesModule.circle}>{item}</span>
                 </div>
                 <img
-                    className={Multiple('img-fluid')}
+                    className={'img img-fluid'}
                     src={`/quran-pages/${item}.png`}
                     alt={`Starts At: ${str} Ends At: ${end}`}
                 />
@@ -45,9 +45,9 @@ const Body = ({ pageStarts, pageEnds }) => {
             showMultiplePages(start, end)
             :
             <img
-                className={'img-fluid'}
+                className={'img img-fluid'}
                 src={`/quran-pages/${start || end}.png`}
-                alt={`Starts At: ${start} Ends At: ${end}`}
+                alt={`Starts At: ${start} Ends At: ${end}`}                      
             />
     )
 

@@ -88,3 +88,22 @@
     background: rgb(47, 79, 79);
     width: 100%;
 }
+
+/*************MEDIA QUERY (------------RESPONSIVE VIEWS-----------)************/
+@media only screen and (max-width: 667px){
+
+    .contentFooter{
+        padding: 5px 5px;
+        font-size: 13px;
+    }
+    h1{
+        font-size: 28px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    span{
+        font-size: 14px;
+        word-spacing: -1px;
+    }
+}

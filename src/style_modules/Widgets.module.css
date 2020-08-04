@@ -55,3 +55,15 @@
     left: 0;
 
 }
+
+/**************MEEEDIAA QUERY (-----RESPONSIVE-----)************/
+@media only screen and (max-width: 667px){
+    .headersRow{
+        border-radius: 0;
+        font-size: 14px;
+        text-align: left;
+        padding: 15px;
+        letter-spacing: -1px;
+        word-spacing: -1px;
+    }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Row, Col } from 'react-bootstrap';
+import MultiClasses from 'classnames';
 import StylesModule from '../../style_modules/Home.module.css';
 import RevelationIcon from '../widgets/RevelationIcon';
 import Loading from '../widgets/Loading';
@@ -21,9 +22,9 @@ const QuraanList = ({ quraanList }) => {
                             </Col>
 
                             <Col>
-                                <h5 className={'font-weight-bold'}>{item.nameComplex}</h5>
+                                <h5 className={MultiClasses('font-weight-bold', StylesModule.surahName)}>{item.nameComplex}</h5>
                                 <div>
-                                    <h6>{item.nameArabic}</h6>
+                                    <h6 className={StylesModule.arabicName}>{item.nameArabic}</h6>
                                 </div>
                             </Col>
 
@@ -34,7 +35,7 @@ const QuraanList = ({ quraanList }) => {
                             </Col>
 
                             <Col>
-                                <div className={'d-flex mt-1 ml-5'}>
+                                <div className={MultiClasses('mt-1', StylesModule.Revelation)}>
                                     <RevelationIcon placeName={item.revelationPlace} iconSize={40} />
                                     <span className={StylesModule.revelationName}>
                                         {item.revelationPlace}

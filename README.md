@@ -5,4 +5,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 or,
 ### `al-quraan-app.firebaseapp.com`
 
-## 
+## App Screenshots..
+  ![](./Demo.png)
